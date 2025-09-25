@@ -1,0 +1,21 @@
+<section class="py-5 bg-light" aria-labelledby="services-title" id="services" >
+  <div class="container">
+    <h2 id="services-title" class="h4 text-center mb-4">خدمات ما</h2>
+
+    <div class="row g-4">
+
+      <div class="col-12 col-md-6 col-lg-4" *ngFor="let service of services">
+        <article class="card h-100 shadow-sm">
+          <div class="card-body text-center">
+            <span class="d-inline-flex align-items-center justify-content-center rounded-circle border p-3 mb-3">
+               <i class="fas fa-walking fa-2x" aria-hidden="true"></i>
+            </span>
+            <h3 class="h5 mb-2">{{ service.title }}</h3>
+            <p class="mb-0">{{ service.description }}</p>
+          </div>
+        </article>
+      </div>
+
+    </div>
+  </div>
+</section>
