@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class CertificateData {
   
-  private apiUrl = 'http://localhost:5116/api/Certificates';
+  private apiUrl = 'https://dr-vahidchamani.ir/api/Certificates';
 
   constructor(private http: HttpClient) { }
 

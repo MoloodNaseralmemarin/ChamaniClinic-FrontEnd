@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ServiceData {
 
-  private apiUrl = 'http://localhost:5116/api/Services';
+  private apiUrl = 'https://dr-vahidchamani.ir/api/Services';
 
   constructor(private http: HttpClient) { }
 

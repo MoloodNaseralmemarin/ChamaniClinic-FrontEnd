@@ -4,7 +4,7 @@
 
     <div class="row g-4">
       <!-- رویداد 1 -->
-      <div class="col-12 col-md-6 col-lg-4" *ngFor="let blog of blogs">
+      <div class="col-12 col-md-6 col-lg-4" *ngFor="let blog of blogs()">
         <article class="card h-100 shadow-sm border-0">
           <img [src]="'images/' + blog.imageUrl" class="card-img-top" alt="تصویر رویداد 1" />
 

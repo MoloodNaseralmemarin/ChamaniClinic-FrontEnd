@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { BlogData } from '../../services/blog-data';
 import { CommonModule } from '@angular/common';
 
@@ -10,13 +10,14 @@ import { CommonModule } from '@angular/common';
   styleUrl: './blogs.scss'
 })
 export class Blogs  implements OnInit {
-  blogs: any[] = [];
+  blogs = signal<any[]>([]);
 
   constructor(private blogData: BlogData) {}
 
   ngOnInit() {
-    this.blogData.getServices().subscribe(data => {
-      this.blogs = data;
+    this.blogData.getServices().subscribe({
+      next: data => this.blogs.set(data),
+      error: err => console.error('خطا در دریافت مطالب:', err)
     });
   }
 }

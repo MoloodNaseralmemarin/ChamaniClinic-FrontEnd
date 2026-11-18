@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { ServiceData } from '../../services/service-data';
 import { CommonModule } from '@angular/common';
 
@@ -9,13 +9,14 @@ import { CommonModule } from '@angular/common';
   styleUrl: './our-services.scss'
 })
 export class OurServices implements OnInit {
-  services: any[] = [];
+  services = signal<any[]>([]);
 
   constructor(private serviceData: ServiceData) {}
 
   ngOnInit() {
-    this.serviceData.getServices().subscribe(data => {
-      this.services = data;
+    this.serviceData.getServices().subscribe({
+      next: data => this.services.set(data),
+      error: err => console.error('خطا در دریافت خدمات:', err)
     });
   }
 }

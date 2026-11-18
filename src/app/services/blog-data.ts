@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class BlogData {
-private apiUrl = 'http://localhost:5116/api/Blogs';
+private apiUrl = 'https://dr-vahidchamani.ir/api/Blogs';
 
   constructor(private http: HttpClient) { }
 

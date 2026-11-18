@@ -2,9 +2,9 @@
   <div class="container">
         <h2 id="blogs-title" class="h4 text-center mb-4"> گواهی نامه ها</h2>
 
-<div class="swiper mySwiper" *ngIf="images.length > 0">
+<div class="swiper mySwiper" *ngIf="images().length > 0">
   <div class="swiper-wrapper">
-    <div class="swiper-slide" *ngFor="let img of images; let i = index">
+    <div class="swiper-slide" *ngFor="let img of images(); let i = index">
       <img [src]="'images/' + img" class="img-fluid" (click)="openModal(i)" style="cursor:pointer;" />
     </div>
   </div>
@@ -17,7 +17,7 @@
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content bg-transparent border-0">
       <div class="modal-body p-0">
-        <img [src]="'images/' + currentImage" class="img-fluid w-100" alt="Modal Image" />
+        <img [src]="'images/' + currentImage()" class="img-fluid w-100" alt="Modal Image" />
       </div>
       <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
