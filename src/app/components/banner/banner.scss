@@ -1,36 +1,95 @@
-.about-wrapper{
-    background-color: #a1d7f7;
-  
-}
 .banner {
   position: relative;
-  height: 800px;
- background: url('/images/5.jpg') no-repeat center center / cover;
+  min-height: clamp(380px, 55vw, 800px);
+  /* بک‌گراند کلینیک (نسخه WebP بهینه‌شده) */
+  background: #0a6c78 url('/images/doctor-full.webp') no-repeat right top / cover;
   overflow: hidden;
 }
 
 .banner-img-wrapper {
   position: absolute;
-  bottom: 15%;            /* بیاد دقیقا پایین */
-  left: 30%;            /* وسط چین افقی */
+  bottom: 15%;
+  left: 30%; /* وسط چین افقی */
+  width: 40%;
   transform: translateX(-50%);
-  width: 40%;           /* سایز تصویر */
 }
 
 .banner-img-wrapper img {
+  display: block;
   width: 100%;
   height: auto;
 }
 
 .divider {
   position: absolute;
-  bottom: -1px;        /* بچسبه به انتهای سکشن */
+  bottom: -1px;
   left: 0;
   width: 100%;
   line-height: 0;
 }
+
 .divider svg {
   display: block;
   width: 100%;
   height: 100px;
+}
+
+/* لپ‌تاپ */
+@media (max-width: 1200px) {
+  .banner-img-wrapper {
+    bottom: 12%;
+    left: 32%;
+    width: 44%;
+  }
+}
+
+/* تبلت افقی */
+@media (max-width: 992px) {
+  .banner-img-wrapper {
+    bottom: 10%;
+    left: 33%;
+    width: 50%;
+  }
+}
+
+/* تبلت عمودی */
+@media (max-width: 768px) {
+  .banner {
+    min-height: clamp(340px, 62vw, 480px);
+    /* نسخه سبک‌تر و جمع‌وجورتر برای نمایشگرهای کوچک */
+    background-image: url('/images/doctor-full-mobile.webp');
+    background-position: right top;
+  }
+
+  /* گرافیک به سمت چپ می‌رود تا دکتر در سمت راست تصویر پنهان نشود */
+  .banner-img-wrapper {
+    bottom: 10%;
+    left: 4%;
+    width: 52%;
+    transform: none;
+  }
+
+  .divider svg {
+    height: 64px;
+  }
+}
+
+/* موبایل */
+@media (max-width: 576px) {
+  .banner {
+    min-height: clamp(320px, 88vw, 430px);
+    background-position: right top;
+  }
+
+  /* گرافیک سمت چپ می‌نشیند تا تصویر دکتر در سمت راست دیده شود */
+  .banner-img-wrapper {
+    bottom: 12%;
+    left: 3%;
+    width: 58%;
+    transform: none;
+  }
+
+  .divider svg {
+    height: 46px;
+  }
 }
